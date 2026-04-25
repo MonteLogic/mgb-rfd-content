@@ -1,0 +1,1 @@
+---\ntitle: 'Hello World'\ndate: '2023-01-01'\nstatus: public\n---\n\nWelcome to your new MoL Blog!

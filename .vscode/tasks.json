@@ -1,0 +1,65 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "build",
+			"path": "MoL-blog-weba",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: build - MoL-blog-weba",
+			"detail": "pnpm run generate-markdown-paths && pnpm run validate-pain-points && pnpm run check-categories && next build"
+		},
+		{
+			"type": "npm",
+			"script": "type-check:watch",
+			"path": "MoL-blog-weba",
+			"problemMatcher": "$tsc-watch",
+			"isBackground": true,
+			"label": "npm: type-check:watch - MoL-blog-weba",
+			"detail": "tsc --noEmit --watch --pretty",
+			"presentation": {
+				"group": "build",
+				"reveal": "never"
+			}
+		},
+		{
+			"type": "npm",
+			"script": "tsgo:check:watch",
+			"path": "MoL-blog-weba",
+			"problemMatcher": "$tsc-watch",
+			"isBackground": true,
+			"label": "tsgo: Type Check (Watch)",
+			"detail": "Go-based TypeScript compiler - 10x faster",
+			"presentation": {
+				"group": "build",
+				"reveal": "never"
+			}
+		},
+		{
+			"type": "npm",
+			"script": "lint:strict",
+			"path": "MoL-blog-weba",
+			"problemMatcher": "$eslint-stylish",
+			"label": "ESLint: Strict Check",
+			"detail": "Strict ESLint with no-any rules and 125-line function limit",
+			"presentation": {
+				"group": "build",
+				"reveal": "silent"
+			}
+		},
+		{
+			"label": "All Checks: tsgo + ESLint",
+			"dependsOrder": "sequence",
+			"dependsOn": [
+				"tsgo: Type Check (Watch)",
+				"ESLint: Strict Check"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": []
+		}
+	]
+}

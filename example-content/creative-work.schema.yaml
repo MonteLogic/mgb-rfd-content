@@ -1,0 +1,34 @@
+allOf:
+  # (Optional) You can load an external definition file from relative path
+  # Docs: https://github.com/JulianCataldo/remark-lint-frontmatter-schema#add-references-to-external-definitions-advanced
+  - $ref: ./page.schema.yaml
+
+  # "Creative work" props. will be merged with page schema props.
+  - properties:
+      category:
+        type: string
+        enum:
+          - Book
+          - Movie
+          - Painting
+          - Photo
+          - Musical piece
+      complex:
+        type: object
+        required:
+          - time
+        properties:
+          time:
+            type: number
+          some:
+            type: string
+
+    required:
+      - category
+      - complex
+# #
+# # Or simply put your local properties directly:
+# properties:
+#   category:
+#     type: string
+# # ...
